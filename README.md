@@ -3,11 +3,11 @@
 Setup script to build my workstation for research environment.
 I have confirmed that the script works in the following system configuration:
 
-||model/version|
-|-|-|
-|CPU|Intel Core i7-6850K|
-|GPU|GeForce GTX 1080|
-|OS|Ubuntu 16.04 64-bit PC (AMD64) desktop image |
+| | model/version |
+|--|--|
+| CPU | Intel Core i7-6850K |
+| GPU | GeForce GTX 1080 |
+| OS | Ubuntu 16.04 64-bit PC (AMD64) desktop image |
 
 
 
@@ -45,11 +45,11 @@ Procedure to build the workstation is described in the ansible playbook `site.ym
 Check roles described in `site.yml` and `README.md` of each role to see what type of tasks will be performed.
 Take the following procedure to configure the workstation.
 
-<!-- 1. Clone ubuntu_setup repository on the control host. -->
+1. Clone ubuntu_setup repository on the control host.
 
-<!--   ``` bash -->
-<!--   $ git clone https://github.com/yusekiya/ubuntu_setup.git -->
-<!--   ``` -->
+  ``` bash
+  $ git clone https://github.com/yusekiya/ubuntu_setup.git
+  ```
 
 2. Copy template inventory file `template_hosts` to inventory file `hosts`, and write the ip address of the workstation into the inventory file, e.g.,
 
