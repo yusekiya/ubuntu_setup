@@ -1,0 +1,4 @@
+---
+- name: Update initramfs
+  become: yes
+  command: /usr/sbin/update-initramfs -u

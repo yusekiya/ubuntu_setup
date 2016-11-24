@@ -1,0 +1,16 @@
+---
+- name: Install requirements
+  apt:
+    name: '{{item}}'
+    state: present
+  with_items:
+    - nvidia-modprobe
+
+- name: Download nvidia-docker
+  get_url:
+    url: 'https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.0-rc.3/nvidia-docker_1.0.0.rc.3-1_amd64.deb'
+    dest: '/tmp/nvidia-docker.deb'
+
+- name: Install nvidia-docker
+  apt:
+    deb: /tmp/nvidia-docker.deb

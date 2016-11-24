@@ -1,0 +1,89 @@
+---
+ubuntu_common_hostname: ubuntu1604
+ubuntu_common_timezone: 'Asia/Tokyo'
+ubuntu_common_packages:
+  - {name: vim}
+  - {name: rsync}
+
+# firewall_allowed_tcp_ports: []
+# firewall_additional_rules:
+#     # Allow all type of connection from LAN
+#     - "iptables -A INPUT -p all -s 10.0.0.0/8 -j ACCEPT"
+#     - "iptables -A INPUT -p all -s 172.16.0.0/12 -j ACCEPT"
+#     - "iptables -A INPUT -p all -s 192.168.0.0/16 -j ACCEPT"
+#     # Allow connection with DHCP server
+#     - "iptables -A INPUT -i eth0 -p udp --sport bootpc --dport bootps -j ACCEPT"
+#     - "iptables -A INPUT -i wlan0 -p udp --sport bootpc --dport bootps -j ACCEPT"
+#     # Allow specific connection from WAN
+#     # - "iptables -A INPUT -p tcp --dport 22 -s 123.456.789.012 -j ACCEPT"
+
+# Version of nvidia driver
+nvidia_driver_version: 367
+
+# Whether to start docker on boot (yes/no).
+docker_service_enabled: yes
+# Version of docker-compose
+docker_compose_version: 1.9.0
+
+# Modify user name for development environment
+# dev_env_user: 'username'
+
+dev_env_basic_dirs:
+  - {path: '~/Downloads'}
+  - {path: '~/.nodebrew/src'}
+  - {path: '~/bin'}
+  - {path: '~/repos'}
+  - {path: '~/scratch'}
+  - {path: '~/share'}
+  - {path: '~/usr/bin'}
+  - {path: '~/usr/include'}
+  - {path: '~/usr/lib'}
+  - {path: '~/usr/lib/python3/site-packages'}
+  - {path: '~/usr/share'}
+  - {path: '~/usr/src'}
+
+dev_env_dotfiles:
+  repository: 'https://github.com/yusekiya/dotfiles.git'
+  dest: '~/dotfiles'
+  symlink_script: 'bash setup.sh -f'
+
+dev_env_anaconda:
+  prefix: '~/anaconda3'
+  src: 'https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh'
+  dest: '~/Downloads/Ananconda_installer.sh'
+
+dev_env_packages:
+  - {name: build-essential}
+  - {name: htop}
+  - {name: pkg-config}
+  - {name: tree}
+  - {name: autoconf}
+  - {name: automake}
+  - {name: bash-completion}
+  - {name: cmake}
+  - {name: colordiff}
+  - {name: exuberant-ctags}
+  - {name: direnv}
+  - {name: nkf}
+  - {name: pandoc}
+  - {name: clang}
+
+dev_env_git_repos:
+  - {name: tpm,
+     repo: "https://github.com/tmux-plugins/tpm.git",
+     dest: "~/.tmux/plugins/tpm" }
+  # - {name: solarized,
+  #    repo: "https://github.com/altercation/solarized.git",
+  #    dest: "~/repos/solarized" }
+  - {name: dircolors-solarized,
+     repo: "https://github.com/seebi/dircolors-solarized.git",
+     dest: "~/repos/dircolors-solarized" }
+  - {name: enhancd,
+     repo: "https://github.com/b4b4r07/enhancd.git",
+     dest: "~/repos/enhancd" }
+
+dev_env_nodebrew:
+  executable_path: '~/.nodebrew/nodebrew'
+  src: 'https://raw.githubusercontent.com/hokaccha/nodebrew/master/nodebrew'
+  dest: '~/Downloads/nodebrew'
+

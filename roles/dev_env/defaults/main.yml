@@ -1,0 +1,19 @@
+---
+# dev_env_user: 'username'
+
+dev_env_basic_dirs: []
+
+dev_env_anaconda:
+  prefix: '~/anaconda3'
+  src: 'https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh'
+  dest: '~/Downloads/Ananconda_installer.sh'
+
+dev_env_packages: []
+
+dev_env_git_repos: []
+
+dev_env_nodebrew:
+  executable_path: '~/.nodebrew/nodebrew'
+  src: 'https://raw.githubusercontent.com/hokaccha/nodebrew/master/nodebrew'
+  dest: '~/Downloads/nodebrew'
+

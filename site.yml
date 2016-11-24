@@ -1,0 +1,12 @@
+---
+- hosts: workstation
+  vars_files:
+    - vars/main.yml
+  roles:
+    - {role: ubuntu_common, become: yes}
+    # - {role: geerlingguy.firewall, become: yes}
+    - {role: nvidia_driver, become: yes}
+    - {role: docker, become: yes}
+    - {role: nvidia_docker, become: yes}
+    - {role: dev_env, when: dev_env_user is defined, become: yes, become_user: '{{dev_env_user}}'}
+

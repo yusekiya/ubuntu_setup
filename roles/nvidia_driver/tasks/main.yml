@@ -1,0 +1,9 @@
+---
+- name: Check if nvidia driver installed
+  shell: dpkg -s 'nvidia-{{nvidia_driver_version}}' | grep 'install ok installed'
+  register: nvidia_driver_installed
+  failed_when: no
+  changed_when: '{{nvidia_driver_installed.rc != 0}}'
+
+- include: install.yml
+  when: '{{nvidia_driver_installed|changed}}'

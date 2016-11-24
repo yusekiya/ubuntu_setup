@@ -1,0 +1,6 @@
+---
+ubuntu_common_hostname: ubuntu1604
+ubuntu_common_timezone: 'Asia/Tokyo'
+ubuntu_common_packages:
+  - {name: vim}
+  - {name: git}

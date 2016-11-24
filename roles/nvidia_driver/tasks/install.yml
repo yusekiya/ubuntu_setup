@@ -1,0 +1,42 @@
+---
+- name: Copy config file to disable Nouveau graphics driver
+  copy:
+    src: blacklist-nouveau.conf
+    dest: /etc/modprobe.d/blacklist-nouveau.conf
+  notify: Update initramfs
+  register: ret_disable_nouveau
+
+- name: Reboot
+  become: yes
+  shell: sleep 2 && shutdown -r now
+  async: 1
+  poll: 0
+  ignore_errors: true
+  when: '{{ret_disable_nouveau|changed}}'
+
+- name: Wait for server to come back
+  become: no
+  local_action: wait_for
+  args:
+    host: '{{ansible_default_ipv4.address}}'
+    port: '{{ansible_port | default(22)}}'
+    state: started
+    delay: 30
+    timeout: 300
+  when: '{{ret_disable_nouveau|changed}}'
+
+- name: Stop display manager
+  service:
+    name: lightdm
+    state: stopped
+
+- name: Install nvidia driver
+  apt:
+    name: 'nvidia-{{nvidia_driver_version}}'
+    state: present
+    update_cache: yes
+
+- name: Start display manager
+  service:
+    name: lightdm
+    state: started
