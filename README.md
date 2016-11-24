@@ -4,7 +4,7 @@ Setup script to build my workstation for research environment.
 I have confirmed that the script works in the following system configuration:
 
 | | model/version |
-|--|--|
+|---|---|
 | CPU | Intel Core i7-6850K |
 | GPU | GeForce GTX 1080 |
 | OS | Ubuntu 16.04 64-bit PC (AMD64) desktop image |
