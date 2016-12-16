@@ -2,3 +2,7 @@
 - name: Update timezone
   become: yes
   command: dpkg-reconfigure --frontend noninteractive tzdata
+
+- name: Restart journald
+  become: yes
+  service: name=systemd-journald state=restarted

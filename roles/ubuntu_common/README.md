@@ -6,6 +6,7 @@ This role performs the followig tasks:
 
 - Change timezone (tags: timezone)
 - Change hostname (tags: hostname)
+- Configure journald (tags: journald)
 - Install packages through apt-get (tags: apt)
 
 All the tasks need root privilege.

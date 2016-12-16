@@ -30,6 +30,28 @@
   tags:
     - hostname
 
+- name: Configure journald | Make log persistent
+  lineinfile:
+    state: present
+    dest: /etc/systemd/journald.conf
+    backrefs: yes
+    regexp: '^#? *Storage'
+    line: 'Storage=persistent'
+  notify: Restart journald
+  tags:
+    - journald
+
+- name: Configure journald | Limit size of persistent log file
+  lineinfile:
+    state: present
+    dest: /etc/systemd/journald.conf
+    backrefs: yes
+    regexp: '^#? *SystemMaxUse'
+    line: 'SystemMaxUse=500M'
+  notify: Restart journald
+  tags:
+    - journald
+
 - name: Update package index file
   apt: update_cache=yes
 
