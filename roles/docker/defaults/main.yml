@@ -1,5 +1,0 @@
----
-# Whether to start docker on boot
-docker_service_enabled: yes
-# Version of docker-compose
-docker_compose_version: 1.8.1

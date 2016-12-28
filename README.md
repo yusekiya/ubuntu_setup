@@ -63,13 +63,19 @@ Take the following procedure to configure the workstation.
 3. Copy `vars/template.yml` to `vars/main.yml`, and modify variables in the file.
 See `README.md` of each role for detailed information about the variables.
 4. Modify the value of `remote_user` in `ansible.cfg` to a user name you want to login as.
-5. Run playbook
+5. Fetch required roles
+
+  ```bash
+  $ ansible-galaxy install -r requirements.yml -p ./roles
+  ```
+
+6. Run playbook
 
   ``` bash
   $ ansible-playbook site.yml
   ```
 
-6. Rerun playbook after reboot just in case, and confirm that each task is ok.
+7. Rerun playbook after reboot just in case, and confirm that each task is ok.
 
 <!-- References -->
 [1]: http://releases.ubuntu.com/16.04/
