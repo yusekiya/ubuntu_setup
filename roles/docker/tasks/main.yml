@@ -1,18 +1,18 @@
 ---
+- include_vars: '{{ansible_lsb.id}}.yml'
+
 - name: Install requirements
   apt:
     name: '{{item}}'
     state: present
-  with_items:
-    - apt-transport-https
-    - ca-certificates
+  with_items: '{{docker_required_packages}}'
   tags:
     - always
 
 - name: Add the new GPG key
   apt_key:
-    id: '58118E89F3A912897C070ADBF76221572C52609D'
-    keyserver: 'hkp://p80.pool.sks-keyservers.net:80'
+    id: '{{docker_repository.keyid}}'
+    keyserver: '{{docker_repository.keyserver}}'
   tags:
     - always
 
@@ -33,9 +33,7 @@
   apt:
     name: '{{item}}'
     state: present
-  with_items:
-    - 'linux-image-extra-{{ansible_kernel}}'
-    - linux-image-extra-virtual
+  with_items: '{{docker_recommended_packages}}'
   tags:
     - recommended
 
@@ -78,5 +76,6 @@
     mode: 0755
     owner: root
     group: root
+  when: ansible_architecture == 'x86_64'
   tags:
     - docker_compose

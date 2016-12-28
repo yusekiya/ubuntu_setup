@@ -1,7 +1,7 @@
 Ansible role: docker
 =========
 
-Install docker on Ubuntu 14.04 through 16.04.
+Install docker on Ubuntu (14.04 through 16.04), Debian 8.0, or Raspbian 8.0.
 This role includes following tasks.
 
 - Install docker and its requirements through apt (tags: always)
