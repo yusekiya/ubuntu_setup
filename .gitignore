@@ -1,3 +1,4 @@
 hosts
 /vars/main.yml
 roles/docker/
+roles/docker_compose/
