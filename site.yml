@@ -7,6 +7,7 @@
     # - {role: geerlingguy.firewall, become: yes}
     - {role: nvidia_driver, become: yes}
     - {role: docker, become: yes}
+    - {role: docker_compose, become: yes}
     - {role: nvidia_docker, become: yes}
     - {role: dev_env, when: dev_env_user is defined, become: yes, become_user: '{{dev_env_user}}'}
 
