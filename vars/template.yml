@@ -18,12 +18,12 @@ ubuntu_common_packages:
 #     # - "iptables -A INPUT -p tcp --dport 22 -s 123.456.789.012 -j ACCEPT"
 
 # Version of nvidia driver
-nvidia_driver_version: 367
+nvidia_driver_version: 375
 
 # Whether to start docker on boot (yes/no).
 docker_service_enabled: yes
 # Version of docker-compose
-docker_compose_version: 1.9.0
+docker_compose_version: 1.13.0
 
 # Modify user name for development environment
 # dev_env_user: 'username'
